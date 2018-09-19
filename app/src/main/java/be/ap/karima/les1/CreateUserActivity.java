@@ -6,9 +6,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
+
+import android.content.Intent;
+
 
 public class CreateUserActivity extends AppCompatActivity {
 
+    private EditText userName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +29,23 @@ public class CreateUserActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        userName = (EditText) findViewById(R.id.username);
+        View viewById = findViewById(R.id.female);
+        viewById.setAlpha(0.4f);
     }
 
+    public void onClick(View view) {
+        finish();
+    }
+
+    @Override
+    public void finish() {
+        Intent intent = new Intent();
+
+        intent.putExtra(User.USER_NAME, userName.getText().toString());
+        intent.putExtra(User.USER_GENDER, true); //hard code value for testing voorlopig
+        setResult(RESULT_OK, intent);
+        super.finish();
+    }
 }
