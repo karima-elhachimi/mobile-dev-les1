@@ -29,6 +29,10 @@
         <activity
             android:name=".CreateUserActivity"
             android:label="@string/title_activity_create_user"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LearnActivity"
+            android:label="@string/title_activity_learn"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
